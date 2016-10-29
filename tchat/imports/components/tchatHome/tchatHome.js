@@ -1,16 +1,18 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Tchats } from '../../api/tchats.js';
+
 import template from './tchatHome.html';
 
 class TchatCtrl {
-  constructor() {
-    this.tasks = [{
-      text: 'This is task 1'
-    }, {
-      text: 'This is task 2'
-    }, {
-      text: 'This is task 3'
-    }];
+  constructor($scope) {
+    $scope.viewModel(this);
+
+    this.helpers({
+      tchats() {
+        return Tchats.find({});
+      }
+    })
   }
 }
 
@@ -19,5 +21,5 @@ export default angular.module('tchatHome', [
 ])
   .component('tchatHome', {
     templateUrl: 'imports/components/tchatHome/tchatHome.html',
-    controller: TchatCtrl
+    controller: ['$scope', TchatCtrl]
   });

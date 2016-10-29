@@ -6,7 +6,11 @@
 </header>
 
 <ul>
-  <li ng-repeat="task in $ctrl.tasks">
-    {{task.text}}
+  <li ng-repeat="tchat in $ctrl.tchats">
+    {{tchat.text}}
   </li>
 </ul>
+
+<form class="new-message" ng-submit="$ctrl.addMessage($ctrl.newMessage)">
+  <input ng-model="$ctrl.newMessage" type="text" name="text" placeholder="Tapez votre message ici...">
+</form>
