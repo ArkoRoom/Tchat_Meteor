@@ -32,7 +32,13 @@ header {
 }
 
 #login-buttons {
+    position: absolute;
+    right: 10px;
+    top: 15px;
     display: block;
+}
+#login-dropdown-list {
+    left: -200px;
 }
 
 h1 {
@@ -44,11 +50,15 @@ h1 {
 }
 
 form {
+    display: block;
     margin-top: 10px;
     margin-bottom: -10px;
+    padding-bottom: 10px;
     position: absolute;
     bottom: 0;
-    padding-bottom: 10px; 
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+  display: block !important; 
 }
 
 .new-message input {
@@ -102,6 +112,11 @@ li.checked .text {
 li.private {
     background: #eee;
     border-color: #ddd;
+}
+li i {
+  font-size: 0.8em;
+  position: relative;
+  left: 385px;
 }
 
 header .hide-completed {

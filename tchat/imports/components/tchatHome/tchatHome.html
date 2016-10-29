@@ -3,14 +3,21 @@
     Bienvenue sur <br>
     ce T'chat !
   </h1>
+
+  <login-buttons>Se connecter</login-buttons>
+
 </header>
 
 <ul>
   <li ng-repeat="tchat in $ctrl.tchats">
-    {{tchat.text}}
+    <span class="text">
+      <strong>{{tchat.username}} dit :</strong><br>
+    </span>
+    {{tchat.text}} <br>
+    <i>envoyé le {{tchat.createdAt}}</i>
   </li>
 </ul>
 
-<form class="new-message" ng-submit="$ctrl.addMessage($ctrl.newMessage)">
+<form class="new-message" ng-submit="$ctrl.addMessage($ctrl.newMessage)" ng-show="$ctrl.currentUser">
   <input ng-model="$ctrl.newMessage" type="text" name="text" placeholder="Tapez votre message ici...">
 </form>
