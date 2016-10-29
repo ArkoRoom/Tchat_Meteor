@@ -58,7 +58,7 @@ form {
     bottom: 0;
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
-  display: block !important; 
+  display: block !important;
 }
 
 .new-message input {
@@ -88,6 +88,8 @@ ul {
     font-size: 1em;
     border: none;
     position: relative;
+    bottom: 10px;
+    left: 10px;
 }
 
 li {

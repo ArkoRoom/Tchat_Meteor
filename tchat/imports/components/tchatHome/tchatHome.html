@@ -6,10 +6,17 @@
 
   <login-buttons>Se connecter</login-buttons>
 
+  <button class="toggle-private" ng-click="$ctrl.setPrivate(tchat)" ng-show="tchat.owner === $ctrl.currentUser._id">
+      Navigation : {{tchat.private == true ? "Privé" : "Public"}}
+  </button>
+
+  <button class="delete" ng-click="$ctrl.removeMessage(tchat)">Supprimer les messages</button>
+
 </header>
 
 <ul>
-  <li ng-repeat="tchat in $ctrl.tchats">
+  <li ng-repeat="tchat in $ctrl.tchats" ng-class="{'checked': tchat.checked, 'privé': tchat.private}">
+    <input type="checkbox" ng-checked="tchat.checked" ng-click="$ctrl.setChecked(tchat)" class="toggle-checked"/>
     <span class="text">
       <strong>{{tchat.username}} dit :</strong><br>
     </span>
