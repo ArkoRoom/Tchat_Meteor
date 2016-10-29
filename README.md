@@ -1,5 +1,7 @@
 # Tchat_Meteor
 
+Un tchat avec Meteor et AngularJS
+
 # Setup
 
 Pour télécharger et installer Météor :
