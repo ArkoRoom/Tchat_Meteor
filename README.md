@@ -13,4 +13,5 @@ Dans une console, saisir : meteor npm install
 # TODO
 
 Fix bug from Delete and Change status (Public or Private)
+
 Install Bootstrap 4 Alpha
