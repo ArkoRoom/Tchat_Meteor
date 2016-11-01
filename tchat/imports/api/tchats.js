@@ -34,33 +34,6 @@ Meteor.methods({
       username: Meteor.user().username,
     });
   },
-  'tchats.remove' (tchatId) {
-    check(tchatId, String);
-
-    const tchat = Tchats.findOne(tchatId);
-    if (tchat.private && tchat.owner !== Meteor.userId()) {
-      // On s'assure que seul le propriétaire du message peut le supprimer
-      throw new Meteor.Error('Vous n\'êtes pas autorisé à faire ça');
-    }
-
-    Tchats.remove(tchatId);
-  },
-  'tchats.setChecked' (tchatId, setChecked) {
-    check(tchatId, String);
-    check(setChecked, Boolean);
-
-    const tchat = Tchats.findOne(tchatId);
-    if (tchat.private && tchat.owner !== Meteor.userId()) {
-      // On s'assure que seul le propriétaire puisse la mettre sur off si privé
-      throw new Meteor.Error('Vous n\'êtes pas autorisé à faire ça');
-    }
-
-    Tchats.update(tchatId, {
-      $set: {
-        checked: setChecked
-      }
-    });
-  },
   'tchats.setPrivate' (tchatId, setToPrivate) {
     check(tchatId, String);
     check(setToPrivate, Boolean);
@@ -71,11 +44,5 @@ Meteor.methods({
     if (tchat.owner !== Meteor.userId()) {
       throw new Meteor.Error('Vous n\'êtes pas autorisé');
     }
-
-    Tchats.update(tchatId, {
-      $set: {
-        private: setToPrivate
-      }
-    });
   },
 });

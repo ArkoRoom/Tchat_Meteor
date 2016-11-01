@@ -4,26 +4,21 @@
     ce T'chat !
   </h1>
 
-  <login-buttons>Se connecter</login-buttons>
+  <login-buttons></login-buttons>
+
+</header>
+
+<p ng-repeat="tchat in $ctrl.tchats" ng-class="{'checked': tchat.checked, 'privé': tchat.private}">
+  <span class="text">
+    <strong>{{tchat.username}} dit :</strong><br>
+  </span>
+  {{tchat.text}} <br>
+  <i>envoyé le {{tchat.createdAt}}</i>
 
   <button class="toggle-private" ng-click="$ctrl.setPrivate(tchat)" ng-show="tchat.owner === $ctrl.currentUser._id">
       Navigation : {{tchat.private == true ? "Privé" : "Public"}}
   </button>
-
-  <button class="delete" ng-click="$ctrl.removeMessage(tchat)">Supprimer les messages</button>
-
-</header>
-
-<ul>
-  <li ng-repeat="tchat in $ctrl.tchats" ng-class="{'checked': tchat.checked, 'privé': tchat.private}">
-    <input type="checkbox" ng-checked="tchat.checked" ng-click="$ctrl.setChecked(tchat)" class="toggle-checked"/>
-    <span class="text">
-      <strong>{{tchat.username}} dit :</strong><br>
-    </span>
-    {{tchat.text}} <br>
-    <i>envoyé le {{tchat.createdAt}}</i>
-  </li>
-</ul>
+</p>
 
 <form class="new-message" ng-submit="$ctrl.addMessage($ctrl.newMessage)" ng-show="$ctrl.currentUser">
   <input ng-model="$ctrl.newMessage" type="text" name="text" placeholder="Tapez votre message ici...">

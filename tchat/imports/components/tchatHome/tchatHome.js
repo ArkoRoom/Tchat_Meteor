@@ -33,15 +33,6 @@ class TchatCtrl {
     this.newMessage = '';
   }
 
-  setChecked(tchat) {
-    // On verifie que la propriété n'est pas son opposée
-    Meteor.call('tchats.setChecked', tchat._id, !tchat.checked);
-  }
-
-  removeMessage(tchat) {
-    Meteor.call('tchats.remove', tchat._id);
-  }
-
   setPrivate(tchat) {
     Meteor.call('tchats.setPrivate', tchat._id, !tchat.private);
   }
